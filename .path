@@ -9,3 +9,5 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="/Users/laserson/miniconda3/bin:$PATH"
 
 export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+
+export PATH="$PATH:$(go env GOPATH)/bin"
