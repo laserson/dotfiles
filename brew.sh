@@ -91,5 +91,15 @@ brew install xz
 brew install zinc
 brew install zopfli
 
+# some improvements from https://remysharp.com/2018/08/23/cli-improved
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+brew install diff-so-fancy
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+brew install fd
+brew install ncdu
+brew install tldr
+
+
 # Remove outdated versions from the cellar.
 brew cleanup
