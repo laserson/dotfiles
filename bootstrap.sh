@@ -16,7 +16,7 @@ function doIt() {
         --exclude "bin/" \
         --exclude "init/" \
         --exclude "requirements.txt" \
-        --exclude "conda.sh" \
+        --exclude "install_conda.sh" \
         -avh --no-perms . ~;
 	source ~/.bash_profile;
 }

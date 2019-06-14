@@ -6,7 +6,7 @@ export PATH="~/miniconda3/bin:$PATH"
 conda update -y conda
 conda install -y $PACKAGES1
 conda create -y -n py27 python=2.7 $PACKAGES1
-conda create -y -n py36 python=3.6 $PACKAGES1
+conda create -y -n py37 python=3.7 $PACKAGES1
 conda info -a
 rm miniconda-install.sh
 pip install $PACKAGES2
