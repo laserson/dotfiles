@@ -207,3 +207,13 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# `Rstudio` with no arguments opens the current directory in Sublime Text, otherwise
+# opens the given location
+function Rstudio() {
+	if [ $# -eq 0 ]; then
+		open -na Rstudio .;
+	else
+		open -na Rstudio "$@";
+	fi;
+}
