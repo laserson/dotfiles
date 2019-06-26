@@ -32,6 +32,20 @@ Note the absolute path to use the OS X-supplied ssh-add which integrates with
 Keychain.  If you installed openssh with homebrew, make sure that it's not
 linked, or the homebrewed version will be run by default.
 
+Modify the ~/.ssh/config file to add
+
+```
+Host *
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_rsa
+```
+
+with an `IdentityFile` line for each private key you want attempted.
+
+
+See StackOverflow: https://apple.stackexchange.com/questions/48502
+
 ### Using Git and the bootstrap script
 
 You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
