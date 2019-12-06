@@ -1,5 +1,6 @@
 {
 	"auto_complete_commit_on_tab": true,
+	"bold_folder_labels": true,
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"default_encoding": "UTF-8",
 	"default_line_ending": "unix",
@@ -20,13 +21,14 @@
 		".git",
 		"node_modules"
 	],
-	"font_face": "Meslo LG S",
-	"font_size": 11,
+	"font_face": "Hack",
+	"font_size": 12,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages":
 	[
 	],
+	"line_padding_bottom": 1,
 	"match_brackets": true,
 	"match_brackets_angle": true,
 	"material_theme_compact_panel": true,
