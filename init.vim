@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged/')
 " General utilities
 Plug 'tpope/vim-unimpaired'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 
 " Appearance/themes
 Plug 'nanotech/jellybeans.vim'
@@ -19,11 +19,18 @@ Plug 'scrooloose/nerdtree'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround.git'
+Plug 'tpope/vim-surround'
 " Plug 'dense-analysis/ale'
 
 " Code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Other dev plugins
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+" bc of https://github.com/psf/black/issues/1293
+" need to specify version
+Plug 'psf/black', { 'tag': '19.10b0' }
 
 call plug#end()
 

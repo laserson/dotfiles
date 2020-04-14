@@ -5,4 +5,5 @@ cp gitconfig ~/.gitconfig
 cp gitignore_global ~/.gitignore
 cp init.vim ~/.config/nvim
 popd
+~/miniconda3/bin/conda init fish
 

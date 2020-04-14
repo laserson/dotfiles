@@ -42,6 +42,7 @@ cp gitconfig ~/.gitconfig
 cp gitignore_global ~/.gitignore
 cp init.vim ~/.config/nvim
 popd
+~/miniconda3/bin/conda init fish
 ```
 
 
@@ -124,6 +125,7 @@ Useful homebrew cask commands
 brew cask install airfoil
 brew cask install crashplan
 brew cask install cyberduck
+brew cask install dozer
 brew cask install dropbox
 brew cask install evernote
 brew cask install firefox
@@ -172,4 +174,17 @@ Host *
 with an `IdentityFile` line for each private key you want attempted.
 
 See StackOverflow: https://apple.stackexchange.com/questions/48502
+
+
+## Insert ISO8601 date
+
+Use the following Applescript in Automator with no input.
+
+```applescript
+on run {input, parameters}
+	set date_string to do shell script "date +'%Y-%m-%d'"
+	tell application "System Events" to keystroke date_string
+	return input
+end run
+```
 
