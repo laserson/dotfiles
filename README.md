@@ -83,8 +83,9 @@ Useful homebrew commands
 brew update
 brew install coreutils
 brew install bash
-brew install wget --with-iri
-brew install vim --with-override-system-vi
+brew install fish
+brew install wget
+brew install neovim
 brew install git
 brew install glib
 brew install gfortran
