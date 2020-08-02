@@ -10,6 +10,3 @@ conda create -y -n py37 python=3.7 $PACKAGES_CONDA
 conda info -a
 rm miniconda-install.sh
 pip install $PACKAGES_PIP
-
-conda init fish
-

@@ -6,7 +6,7 @@
 Install fish shell, then set it as the default shell:
 
 ```shell
-sudo echo /usr/local/bin/fish >> /etc/shells
+sudo bash -c "echo /usr/local/bin/fish >> /etc/shells"
 chsh -s /usr/local/bin/fish
 
 fish
@@ -14,7 +14,7 @@ fish
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 fisher add jethrokuan/z
 fisher add edc/bass
-fisher add laughedelic/pisces
+# fisher add laughedelic/pisces
 fisher add rafaelrinaldi/pure
 
 git checkout https://github.com/laserson/dotfiles.git
@@ -28,7 +28,7 @@ cp dotfiles/config.fish ~/.config/fish
 mkdir -p ~/.config/nvim/autoload/
 curl -fLo ~/.config/nvim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-cp init.vim ~/.config/nvim/
+cp ~/dotfiles/init.vim ~/.config/nvim/
 nvim +PlugInstall +qall
 ```
 ## Update dotfiles
@@ -49,33 +49,23 @@ popd
 
 ## Setting up a new MacOS machine
 
-1.  Create ~/.ssh (700) and transfer ssh keys if necessary. (You can scp the
+1.  Set computer name (under Sharing in System Preferences)
+2.  Install homebrew (see reqs there for installing Xcode).
+3.  Create ~/.ssh (700) and transfer ssh keys if necessary. (You can scp the
     files from one to the other.  Also transfer config.)
-
-2.  Install homebrew. May require installing Apple's developer tools (Xcode) and
-    Command Line Tools.
-
-3.  Set computer name (under Sharing in System Preferences)
-
-4.  Checkout this repo into ~/dotfiles.
-
-5.  Install homebrew and homebrew cask packages listed below.
-
+4.  Checkout this repo into ~/dotfiles
+5.  Install whatever homebrew and homebrew cask packages listed below.
 6.  Install Python using `install_conda.sh`.
-
 7.  Install R and Rstudio.
-
 8.  Install the "Hack" font.
-
 9.  `mkdir ~/tmp`
-
 10. Go through https://github.com/mathiasbynens/dotfiles/blob/master/.macos to
     customize and execute. Diff it against the `macos` file currently in the
     repo.
-
-11. Get Solarized theme for Terminal (maybe in mathiasbynens again)
-
-12. Create symlink to Dropbox called `ul-dropbox`
+11. Apply Solarized theme for Terminal in this directory.
+12. Install Dropbox
+13. Create symlink to Dropbox called `ul-dropbox`
+14. Remap CAPS to Esc (using System Preferences)
 
 Useful homebrew commands
 
@@ -123,12 +113,8 @@ brew install zinc
 Useful homebrew cask commands
 
 ```shell
-brew cask install airfoil
-brew cask install crashplan
-brew cask install cyberduck
 brew cask install dozer
 brew cask install dropbox
-brew cask install evernote
 brew cask install firefox
 brew cask install google-chrome
 brew cask install intellij-idea
