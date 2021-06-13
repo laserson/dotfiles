@@ -1,8 +1,12 @@
-Host demeter
-HostName demeter.hpc.mssm.edu
-User laseru01+vkrb
-ForwardX11 yes
-ForwardAgent yes
-controlmaster auto
-controlpath ~/.ssh/controlmasters/%r@%h:%p
+Host *
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_rsa
 
+Host demeter
+    HostName demeter.hpc.mssm.edu
+    User laseru01+vkrb
+    ForwardX11 yes
+    ForwardAgent yes
+    controlmaster auto
+    controlpath ~/.ssh/controlmasters/%r@%h:%p

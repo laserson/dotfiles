@@ -11,15 +11,14 @@ chsh -s /usr/local/bin/fish
 
 fish
 
-curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-fisher add jethrokuan/z
-fisher add edc/bass
-# fisher add laughedelic/pisces
-fisher add rafaelrinaldi/pure
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install jethrokuan/z
+fisher install edc/bass
+# fisher install laughedelic/pisces
+fisher install rafaelrinaldi/pure
 
-git checkout https://github.com/laserson/dotfiles.git
 mkdir -p ~/.config/fish
-cp dotfiles/config.fish ~/.config/fish
+curl -sL https://raw.githubusercontent.com/laserson/dotfiles/master/config.fish > ~/.config/fish/config.fish
 ```
 
 ## Bootstrap Neovim config

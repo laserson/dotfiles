@@ -40,18 +40,3 @@ end
 function .....
   ../../../..
 end
-# App shortcuts
-function s
-    if count $argv > /dev/null
-        subl -n $argv
-    else
-        subl -n .
-    end
-end
-function Rstudio
-    if count $argv > /dev/null
-        open -na Rstudio $argv
-    else
-        open -na Rstudio .
-    end
-end
