@@ -16,6 +16,7 @@ fisher install jethrokuan/z
 fisher install edc/bass
 # fisher install laughedelic/pisces
 fisher install rafaelrinaldi/pure
+fisher install lgathy/google-cloud-sdk-fish-completion
 
 mkdir -p ~/.config/fish
 curl -sL https://raw.githubusercontent.com/laserson/dotfiles/master/config.fish > ~/.config/fish/config.fish

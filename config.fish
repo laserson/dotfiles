@@ -9,8 +9,14 @@ set -g fish_key_bindings fish_user_key_bindings
 
 
 # variable "exports"
-set -g -x EDITOR "nvim"
-set JAVA_HOME (/usr/libexec/java_home)
+if test (which nvim)
+    set -g -x EDITOR "nvim"
+else
+    set -g -x EDITOR "vim"
+end
+if test -x /usr/libexec/java_home
+    set JAVA_HOME (/usr/libexec/java_home)
+end
 
 
 # Set path
