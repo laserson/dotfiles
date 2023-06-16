@@ -16,10 +16,31 @@ fisher install jethrokuan/z
 fisher install edc/bass
 # fisher install laughedelic/pisces
 fisher install rafaelrinaldi/pure
+fisher install gazorby/fish-exa
 fisher install lgathy/google-cloud-sdk-fish-completion
 
+# or copy the config.fish file from here
 mkdir -p ~/.config/fish
 curl -sL https://raw.githubusercontent.com/laserson/dotfiles/master/config.fish > ~/.config/fish/config.fish
+
+# especially good for remote machines
+set --universal pure_color_hostname green
+set --universal pure_color_at_sign green
+set --universal pure_color_username_normal green
+
+# set exa as alt to ls if available
+alias -s ls="exa --color=auto"
+alias -s ll="exa -lah"
+alias -s tree="exa --tree"
+
+
+
+```
+
+## Fix conda prompt with fish
+
+```shell
+conda config --set changeps1 False
 ```
 
 ## Bootstrap Neovim config
@@ -42,7 +63,7 @@ cp gitconfig ~/.gitconfig
 cp gitignore_global ~/.gitignore
 cp init.vim ~/.config/nvim
 popd
-~/miniconda3/bin/conda init fish
+/usr/local/opt/micromamba/bin/micromamba shell init -s fish -p ~/micromamba
 ```
 
 
@@ -175,3 +196,6 @@ on run {input, parameters}
 end run
 ```
 
+# launchd
+
+Remember to check all the regular jobs with LaunchControl

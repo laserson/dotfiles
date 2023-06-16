@@ -1,7 +1,10 @@
 Host *
+    IgnoreUnknown UseKeychain
     UseKeychain yes
     AddKeysToAgent yes
     IdentityFile ~/.ssh/id_rsa
+    controlmaster auto
+    controlpath ~/.ssh/controlmasters/%r@%h:%p
 
 Host demeter
     HostName demeter.hpc.mssm.edu

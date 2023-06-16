@@ -33,7 +33,6 @@ end
 
 # functions/aliases
 alias g git
-alias t todo.sh
 alias o open
 alias j z  # jump directories with j instead of z
 # cd shortcuts
@@ -46,3 +45,6 @@ end
 function .....
   ../../../..
 end
+
+alias mad="micromamba activate default"
+alias mm="micromamba"
