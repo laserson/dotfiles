@@ -62,6 +62,7 @@ cp config.fish ~/.config/fish/
 cp gitconfig ~/.gitconfig
 cp gitignore_global ~/.gitignore
 cp init.vim ~/.config/nvim
+cp condarc ~/.condarc
 popd
 /usr/local/opt/micromamba/bin/micromamba shell init -s fish -p ~/micromamba
 ```
