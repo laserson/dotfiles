@@ -74,12 +74,29 @@ popd
 
 ## Setting up a new MacOS machine
 
-Terminal-related stuff
+### Terminal-related stuff
 
 - Set up Solarized theme for Terminal
 - Set up SSH keys as necessary. Can transfer from other machines.
 - Install homebrew
-- Install fish shell and see instructions for bootstrapping a server for fish
+- Install fish shell with homebrew and see instructions for bootstrapping a server for fish
+- Install some useful homebrew packages
+
+```
+brew update
+brew install coreutils
+brew install git
+brew install jq
+brew install qsv
+brew install wget
+brew install grep
+brew install eza
+brew install openssh
+brew install ack
+brew install watch
+```
+
+
 
 
 1.  Set computer name (under Sharing in System Preferences)
@@ -100,69 +117,7 @@ Terminal-related stuff
 13. Create symlink to Dropbox called `ul-dropbox`
 14. Remap CAPS to Esc (using System Preferences)
 
-Useful homebrew commands
 
-```shell
-brew update
-brew install coreutils
-brew install bash
-brew install fish
-brew install wget
-brew install neovim
-brew install git
-brew install glib
-brew install gfortran
-brew install iftop
-brew install jq
-brew install grep
-brew install openssh
-brew install ack
-brew install boost # LONG TIME
-brew install cmake
-brew install csshx
-brew install fftw
-brew install libffi
-brew install llvm --with-clang --with-rtti --with-python  # LONG TIME
-brew install lsd
-brew install imagemagick --with-webp
-brew install maven
-brew install mercurial
-brew install protobuf
-brew install pup
-brew install readline
-brew install ruby
-brew install sbt
-brew install scala # needs Java first
-brew install snappy
-brew install thrift
-brew install tmux
-brew install tree
-brew install vbindiff
-brew install watch
-brew install webkit2png
-brew install xz
-brew install zinc
-```
-
-Useful homebrew cask commands
-
-```shell
-brew cask install dozer
-brew cask install dropbox
-brew cask install firefox
-brew cask install google-chrome
-brew cask install intellij-idea
-brew cask install java
-brew cask install mendeley-desktop
-brew cask install moom
-brew cask install rstudio
-brew cask install seil
-brew cask install slack
-brew cask install spotify
-brew cask install sublime-text
-brew cask install transmission
-brew cask install vlc
-```
 
 Consider Spectacle instead of Moom. (Config file in mathiasbynens.)
 
