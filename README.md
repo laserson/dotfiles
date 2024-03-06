@@ -20,7 +20,7 @@ fisher install jethrokuan/z
 fisher install edc/bass
 fisher install pure-fish/pure
 
-# or copy the config.fish file from here
+# get the fish config file
 mkdir -p ~/.config/fish
 curl -sL https://raw.githubusercontent.com/laserson/dotfiles/master/config.fish > ~/.config/fish/config.fish
 

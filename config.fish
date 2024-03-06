@@ -14,9 +14,6 @@ if test (which nvim)
 else
     set -g -x EDITOR "vim"
 end
-if test -x /usr/libexec/java_home
-    set JAVA_HOME (/usr/libexec/java_home)
-end
 
 
 # add homebrew to path
