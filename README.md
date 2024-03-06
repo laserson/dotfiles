@@ -6,18 +6,19 @@
 Install fish shell, then set it as the default shell:
 
 ```shell
-sudo bash -c "echo /usr/local/bin/fish >> /etc/shells"
-chsh -s /usr/local/bin/fish
+# NEED TO SET
+PATH_TO_FISH=/usr/local/bin/fish
+PATH_TO_FISH=/opt/homebrew/bin/fish
+
+sudo bash -c "echo $PATH_TO_FISH >> /etc/shells"
+chsh -s $PATH_TO_FISH
 
 fish
 
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 fisher install jethrokuan/z
 fisher install edc/bass
-# fisher install laughedelic/pisces
-fisher install rafaelrinaldi/pure
-fisher install gazorby/fish-exa
-fisher install lgathy/google-cloud-sdk-fish-completion
+fisher install pure-fish/pure
 
 # or copy the config.fish file from here
 mkdir -p ~/.config/fish
@@ -28,13 +29,15 @@ set --universal pure_color_hostname green
 set --universal pure_color_at_sign green
 set --universal pure_color_username_normal green
 
-# set exa as alt to ls if available
-alias -s ls="exa --color=auto"
-alias -s ll="exa -lah"
-alias -s tree="exa --tree"
-
-
-
+# if lsd installed
+if test (which lsd)
+    alias -s ls="lsd"
+    alias -s l="ls -l"
+    alias -s ll="ls -l"
+    alias -s la="ls -a"
+    alias -s lla="ls -la"
+    alias -s lt="ls --tree"
+end
 ```
 
 ## Fix conda prompt with fish
@@ -70,6 +73,14 @@ popd
 
 
 ## Setting up a new MacOS machine
+
+Terminal-related stuff
+
+- Set up Solarized theme for Terminal
+- Set up SSH keys as necessary. Can transfer from other machines.
+- Install homebrew
+- Install fish shell and see instructions for bootstrapping a server for fish
+
 
 1.  Set computer name (under Sharing in System Preferences)
 2.  Install homebrew (see reqs there for installing Xcode).
@@ -112,6 +123,7 @@ brew install csshx
 brew install fftw
 brew install libffi
 brew install llvm --with-clang --with-rtti --with-python  # LONG TIME
+brew install lsd
 brew install imagemagick --with-webp
 brew install maven
 brew install mercurial

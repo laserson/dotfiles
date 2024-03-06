@@ -19,15 +19,20 @@ if test -x /usr/libexec/java_home
 end
 
 
-# Set path
-# homebrew
-if test -d /usr/local/bin
-    set -g fish_user_paths "/usr/local/sbin" "/usr/local/bin" $fish_user_paths
+# add homebrew to path
+if test -x /opt/homebrew/bin/brew
+    set -g HOMEBREW_EXEC /opt/homebrew/bin/brew
+else if test -x /usr/local/bin/brew
+    set -g HOMEBREW_EXEC /usr/local/bin/brew
 end
-# updated gnu tools
-if test -d /usr/local/opt/coreutils/libexec/gnubin
-    set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
-    set MANPATH "/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+if set -q HOMEBREW_EXEC
+    set -g HOMEBREW_PREFIX ($HOMEBREW_EXEC --prefix)
+    set -g fish_user_paths "$HOMEBREW_PREFIX/sbin" "$HOMEBREW_PREFIX/bin" $fish_user_paths
+    # updated gnu tools (brew install coreutils)
+    if test -d $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
+        set -g fish_user_paths "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin" $fish_user_paths
+        set MANPATH "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
+    end
 end
 
 
