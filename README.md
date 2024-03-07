@@ -61,7 +61,7 @@ micromamba config --set changeps1 False
 
 ## Setting up a new MacOS machine
 
-Go through https://github.com/mathiasbynens/dotfiles/blob/master/.macos to
+Go through https://github.com/driesvints/dotfiles/blob/main/.macos to
 customize settings or equivalent. See settings in the `macos` file in the repo.
 
 Draw contacts from
@@ -69,6 +69,7 @@ Draw contacts from
 - Gmails/Google contacts
 - iPhone/Apple contacts
 
+Install Hack font.
 
 ### Terminal-related stuff
 
@@ -91,44 +92,35 @@ brew install ncdu
 brew install openssh
 brew install ack
 brew install watch
+brew install gh
 ```
 
+- Create a `ul-dropbox` symlink
+- Set up git/GitHub with `gh auth login`. Then clone this dotfiles repo.
+- Set up git config, and edit as necessary
+
+```shell
+cp gitconfig ~/.gitconfig
+cp gitignore_global ~/.gitignore
+```
+
+- Copy over the ssh config and modify the `IdentityFile` line appropriately
+
+```shell
+cp sshconfig ~/.ssh/config
+```
+
+Consider Rectangle instead of Moom. (Config file in mathiasbynens.)
 
 
 
-1.  Set computer name (under Sharing in System Preferences)
-2.  Install homebrew (see reqs there for installing Xcode).
-3.  Create ~/.ssh (700) and transfer ssh keys if necessary. (You can scp the
-    files from one to the other.  Also transfer config.)
-4.  Checkout this repo into ~/dotfiles
-5.  Install whatever homebrew and homebrew cask packages listed below.
-6.  Install Python using `install_conda.sh`.
-7.  Install R and Rstudio.
-8.  Install the "Hack" font.
-9.  `mkdir ~/tmp`
-10. Go through https://github.com/mathiasbynens/dotfiles/blob/master/.macos to
-    customize and execute. Diff it against the `macos` file currently in the
-    repo.
-11. Apply Solarized theme for Terminal in this directory.
-12. Install Dropbox
-13. Create symlink to Dropbox called `ul-dropbox`
-14. Remap CAPS to Esc (using System Preferences)
 
-
-
-Consider Spectacle instead of Moom. (Config file in mathiasbynens.)
-
-Get Material theme for Sublime.
-
-Consider diff-so-fancy for git.
-
-
-## ssh agent
+## ssh agent and config
 
 To add private ssh key to Keychain:
 
 ```bash
-/usr/bin/ssh-add -K ~/.ssh/id_rsa
+/usr/bin/ssh-add --apple-use-keychain ~/.ssh/id_rsa
 ```
 
 Note the absolute path to use the OS X-supplied ssh-add which integrates with
