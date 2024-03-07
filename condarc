@@ -1,5 +1,0 @@
-channels:
-  - conda-forge
-  - nodefaults
-changeps1: false
-root_prefix: $HOME/micromamba

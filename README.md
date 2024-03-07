@@ -19,6 +19,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install jethrokuan/z
 fisher install edc/bass
 fisher install pure-fish/pure
+fisher install plttn/fish-eza
 
 # get the fish config file
 mkdir -p ~/.config/fish
@@ -28,33 +29,9 @@ curl -sL https://raw.githubusercontent.com/laserson/dotfiles/master/config.fish 
 set --universal pure_color_hostname green
 set --universal pure_color_at_sign green
 set --universal pure_color_username_normal green
-
-# if lsd installed
-if test (which lsd)
-    alias -s ls="lsd"
-    alias -s l="ls -l"
-    alias -s ll="ls -l"
-    alias -s la="ls -a"
-    alias -s lla="ls -la"
-    alias -s lt="ls --tree"
-end
 ```
 
-## Fix conda prompt with fish
 
-```shell
-conda config --set changeps1 False
-```
-
-## Bootstrap Neovim config
-
-```shell
-mkdir -p ~/.config/nvim/autoload/
-curl -fLo ~/.config/nvim/autoload/plug.vim \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-cp ~/dotfiles/init.vim ~/.config/nvim/
-nvim +PlugInstall +qall
-```
 ## Update dotfiles
 
 Run `publish-dotfiles.sh`, whose contents is:
@@ -64,15 +41,34 @@ pushd ~/dotfiles
 cp config.fish ~/.config/fish/
 cp gitconfig ~/.gitconfig
 cp gitignore_global ~/.gitignore
-cp init.vim ~/.config/nvim
 cp condarc ~/.condarc
 popd
 /usr/local/opt/micromamba/bin/micromamba shell init -s fish -p ~/micromamba
 ```
 
+## Bootstrap micromamba
+
+```shell
+bash -c "$(curl https://micromamba.pfx.dev/install.sh)"
+micromamba create -n default
+micromamba activate default
+micromamba install python=3.12 numpy scipy pandas matplotlib bokeh seaborn scikit-learn jupyterlab
+
+# fix the conda prompt when using fish
+micromamba config --set changeps1 False
+```
 
 
 ## Setting up a new MacOS machine
+
+Go through https://github.com/mathiasbynens/dotfiles/blob/master/.macos to
+customize settings or equivalent. See settings in the `macos` file in the repo.
+
+Draw contacts from
+- Fastmail
+- Gmails/Google contacts
+- iPhone/Apple contacts
+
 
 ### Terminal-related stuff
 
@@ -91,6 +87,7 @@ brew install qsv
 brew install wget
 brew install grep
 brew install eza
+brew install ncdu
 brew install openssh
 brew install ack
 brew install watch
@@ -167,3 +164,16 @@ end run
 # launchd
 
 Remember to check all the regular jobs with LaunchControl
+
+
+## Ancient history
+
+### Bootstrap Neovim config
+
+```shell
+mkdir -p ~/.config/nvim/autoload/
+curl -fLo ~/.config/nvim/autoload/plug.vim \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+cp ~/dotfiles/init.vim ~/.config/nvim/
+nvim +PlugInstall +qall
+```
