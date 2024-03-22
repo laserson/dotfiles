@@ -43,9 +43,16 @@
 [diff]
 	# Detect copies as well as renames
 	renames = copies
+	tool = difftastic
 [diff "bin"]
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
+[difftool]
+        prompt = false
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+        difftool = true
 [help]
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
@@ -81,3 +88,4 @@
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
 	churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
+	dft = difftool

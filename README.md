@@ -32,24 +32,12 @@ set --universal pure_color_username_normal green
 ```
 
 
-## Update dotfiles
-
-Run `publish-dotfiles.sh`, whose contents is:
-
-```shell
-pushd ~/dotfiles
-cp config.fish ~/.config/fish/
-cp gitconfig ~/.gitconfig
-cp gitignore_global ~/.gitignore
-cp condarc ~/.condarc
-popd
-/usr/local/opt/micromamba/bin/micromamba shell init -s fish -p ~/micromamba
-```
-
 ## Bootstrap micromamba
 
 ```shell
 bash -c "$(curl https://micromamba.pfx.dev/install.sh)"
+# the above command initializes the shell, but otherwise run:
+# /path/to/micromamba shell init -s fish -p ~/micromamba
 micromamba create -n default
 micromamba activate default
 micromamba install python=3.12 numpy scipy pandas matplotlib bokeh seaborn scikit-learn jupyterlab
@@ -111,8 +99,6 @@ cp sshconfig ~/.ssh/config
 ```
 
 Consider Rectangle instead of Moom. (Config file in mathiasbynens.)
-
-
 
 
 ## ssh agent and config

@@ -1,8 +1,8 @@
-#! /usr/local/bin/fish
+#! /opt/homebrew/bin/fish
 
 micromamba activate default
 
-cd /Users/laserson/ul-dropbox/shared/Liz/tiller
+cd $HOME/ul-dropbox/shared/Liz/tiller
 python scripts/download_data.py
 python scripts/download_ticker_data.py
 papermill tiller-analysis.ipynb tiller-analysis-autorun.ipynb
