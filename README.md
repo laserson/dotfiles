@@ -6,15 +6,17 @@
 Install fish shell, then set it as the default shell:
 
 ```shell
-# NEED TO SET
-PATH_TO_FISH=/usr/local/bin/fish
-PATH_TO_FISH=/opt/homebrew/bin/fish
+#export PATH_TO_FISH=/usr/local/bin/fish
+#export PATH_TO_FISH=/opt/homebrew/bin/fish
+export PATH_TO_FISH=$(which fish)
 
 sudo bash -c "echo $PATH_TO_FISH >> /etc/shells"
 chsh -s $PATH_TO_FISH
+```
 
-fish
+Then run `fish` or logout/login to be placed in a fish shell. Then configure it:
 
+```shell
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 fisher install jethrokuan/z
 fisher install edc/bass
@@ -24,7 +26,11 @@ fisher install plttn/fish-eza
 # get the fish config file
 mkdir -p ~/.config/fish
 curl -sL https://raw.githubusercontent.com/laserson/dotfiles/master/config.fish > ~/.config/fish/config.fish
+```
 
+For remote machines, execute these options:
+
+```shell
 # especially good for remote machines
 set --universal pure_color_hostname green
 set --universal pure_color_at_sign green
@@ -35,9 +41,10 @@ set --universal pure_color_username_normal green
 ## Bootstrap micromamba
 
 ```shell
-bash -c "$(curl https://micromamba.pfx.dev/install.sh)"
-# the above command initializes the shell, but otherwise run:
+bash -c "$(curl https://micromamba.pfx.dev/install.sh)" < /dev/null
+# the above command initializes the shell too, but otherwise run:
 # /path/to/micromamba shell init -s fish -p ~/micromamba
+# comment the "< /dev/null" to ask for setup paths etc
 micromamba create -n default
 micromamba activate default
 micromamba install python=3.12 numpy scipy pandas matplotlib bokeh seaborn scikit-learn jupyterlab
