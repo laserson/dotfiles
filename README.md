@@ -14,6 +14,12 @@ sudo bash -c "echo $PATH_TO_FISH >> /etc/shells"
 chsh -s $PATH_TO_FISH
 ```
 
+If `chsh` above requires a password on a cloud VM, it might be bc your username is missing from `/etc/passwd`. See https://serverfault.com/questions/736471/how-do-i-change-my-default-shell-on-a-domain-account. This can be solved by adding it manually:
+
+```
+getent passwd "$USER" | sudo tee -a /etc/passwd
+```
+
 Then run `fish` or logout/login to be placed in a fish shell. Then configure it:
 
 ```shell
