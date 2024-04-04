@@ -59,6 +59,9 @@
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+[fetch]
+	# prune remote-tracking branches no longer on remote by default
+	prune = true
 [push]
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
