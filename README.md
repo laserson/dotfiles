@@ -49,13 +49,14 @@ set --universal pure_color_username_normal green
 bash -c "$(curl https://micromamba.pfx.dev/install.sh)" < /dev/null
 # the above command initializes the shell too, but otherwise run:
 # /path/to/micromamba shell init -s fish -p ~/micromamba
-# comment the "< /dev/null" to ask for setup paths etc
+# comment the "< /dev/null" to not use default paths etc
+source ~/.config/fish/config.fish
 micromamba create -n default
 micromamba activate default
-micromamba install python=3.12 numpy scipy pandas matplotlib bokeh seaborn scikit-learn jupyterlab
+micromamba install -y python=3.12 numpy scipy pandas matplotlib bokeh seaborn scikit-learn jupyterlab
 
 # fix the conda prompt when using fish
-micromamba config --set changeps1 False
+micromamba config set changeps1 False
 ```
 
 
