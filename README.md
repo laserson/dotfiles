@@ -3,24 +3,27 @@
 
 ## Bootstrapping a server for fish shell
 
-Install fish shell, then set it as the default shell:
+Install fish shell.
 
 ```shell
-#export PATH_TO_FISH=/usr/local/bin/fish
-#export PATH_TO_FISH=/opt/homebrew/bin/fish
+# Set the location of the fish executable
 export PATH_TO_FISH=$(which fish)
 
+# If not registered in /etc/shells, then add it.
 sudo bash -c "echo $PATH_TO_FISH >> /etc/shells"
-chsh -s $PATH_TO_FISH
-```
 
-If `chsh` above requires a password on a cloud VM, it might be bc your username is missing from `/etc/passwd`. See https://serverfault.com/questions/736471/how-do-i-change-my-default-shell-on-a-domain-account. This can be solved by adding it manually:
-
-```
+# If user missing from /etc/passwd, add it (Linux-only?)
+# https://serverfault.com/questions/736471/how-do-i-change-my-default-shell-on-a-domain-account
 getent passwd "$USER" | sudo tee -a /etc/passwd
+
+# change default login shell
+# chsh -s $PATH_TO_FISH
+sudo chsh -s $PATH_TO_FISH $USER
 ```
 
-Then run `fish` or logout/login to be placed in a fish shell. Then configure it:
+Then run `fish` or logout/login.
+
+Configure fish shell.
 
 ```shell
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
@@ -32,12 +35,8 @@ fisher install plttn/fish-eza
 # get the fish config file
 mkdir -p ~/.config/fish
 curl -sL https://raw.githubusercontent.com/laserson/dotfiles/master/config.fish > ~/.config/fish/config.fish
-```
 
-For remote machines, execute these options:
-
-```shell
-# especially good for remote machines
+# For remote machines, execute these options
 set --universal pure_color_hostname green
 set --universal pure_color_at_sign green
 set --universal pure_color_username_normal green
