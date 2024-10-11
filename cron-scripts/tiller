@@ -7,3 +7,5 @@ python scripts/download_data.py
 python scripts/download_ticker_data.py
 papermill tiller-analysis.ipynb tiller-analysis-autorun.ipynb
 jupyter nbconvert --to=html --no-input tiller-analysis-autorun.ipynb
+
+python weekly-spending-email.py
