@@ -30,6 +30,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install jethrokuan/z
 fisher install edc/bass
 fisher install pure-fish/pure
+# if you have eza installed, install the fish shell wrapper
 fisher install plttn/fish-eza
 
 # get the fish config file
