@@ -59,6 +59,16 @@ micromamba install -y python=3.12 numpy scipy pandas matplotlib bokeh seaborn sc
 micromamba config set changeps1 False
 ```
 
+## Bootstrap tmux
+
+```shell
+# brew install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+curl -sL https://raw.githubusercontent.com/laserson/dotfiles/master/tmux.conf > ~/.tmux.conf
+```
+
+Start tmux and press `prefix I` to install plugins.
+
 
 ## Setting up a new MacOS machine
 
