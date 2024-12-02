@@ -82,6 +82,8 @@ Draw contacts from
 - iPhone/Apple contacts
 
 Install Hack font.
+Install Hidden Bar.
+Install Rectangle.
 
 ### Terminal-related stuff
 
