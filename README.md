@@ -130,6 +130,7 @@ cp gitignore_global ~/.gitignore
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 cp sshconfig ~/.ssh/config
+mkdir -p ~/.ssh/controlmasters
 ```
 
 ### VSCode / Cursor stuff
