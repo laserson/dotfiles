@@ -73,17 +73,22 @@ Start tmux and press `prefix I` to install plugins.
 
 ## Setting up a new MacOS machine
 
+Remap CapsLock to Ctrl in System Prefs => Keyboard => Keyboard shortcuts => Modifier keys
+
 Go through https://github.com/driesvints/dotfiles/blob/main/.macos to
 customize settings or equivalent. See settings in the `macos` file in the repo.
 
-Draw contacts from
-- Fastmail
-- Gmails/Google contacts
-- iPhone/Apple contacts
+Install Cursor
+Install 1Password
+Install Hack font
+Install Hidden Bar
+Install Rectangle
+Install LaunchControl. Set up Tiller cron job.
+Download XScreenSaver
 
-Install Hack font.
-Install Hidden Bar.
-Install Rectangle.
+Run through MacOS Settings
+
+Transfer stuff in ~/.config using AirDrop
 
 ### Terminal-related stuff
 
@@ -102,6 +107,7 @@ brew install qsv
 brew install wget
 brew install grep
 brew install eza
+brew install difftastic
 brew install ncdu
 brew install openssh
 brew install ack
@@ -121,11 +127,37 @@ cp gitignore_global ~/.gitignore
 - Copy over the ssh config and modify the `IdentityFile` line appropriately
 
 ```shell
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
 cp sshconfig ~/.ssh/config
 ```
 
-Consider Rectangle instead of Moom. (Config file in mathiasbynens.)
+### VSCode / Cursor stuff
 
+Get Python to launch IPython: https://stackoverflow.com/questions/52310689/use-ipython-repl-in-vs-code
+
+But I add a `-i`
+
+```
+"python.terminal.launchArgs": [
+  "-m",
+  "IPython",
+  "--no-autoindent",
+  "-i"
+],
+```
+
+Dealing with remote editing, you might need to explicitly set these:
+
+```
+"remote.SSH.remotePlatform": {
+  "172.*": "linux",
+  "devenv": "linux"
+},
+"terminal.integrated.defaultProfile.linux": "bash",
+```
+
+GitHub Light Default theme
 
 ## ssh agent and config
 
