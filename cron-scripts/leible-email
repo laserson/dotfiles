@@ -1,0 +1,10 @@
+#! /opt/homebrew/bin/fish
+
+micromamba activate default
+
+cd $HOME
+
+leible emails \
+    --positives-parquet $HOME/proj/leible/data/readcube_embedded.parquet \
+    --threshold 0.08 \
+    --log-level INFO
