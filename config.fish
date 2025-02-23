@@ -1,13 +1,3 @@
-# set vi-style bindings but keep ctrl-F for autocomplete
-function fish_user_key_bindings
-    fish_vi_key_bindings
-    for mode in insert default visual
-        bind -M $mode \cf forward-char
-    end
-end
-set -g fish_key_bindings fish_user_key_bindings
-
-
 # variable "exports"
 if test (which nvim)
     set -g -x EDITOR "nvim"
