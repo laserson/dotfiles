@@ -58,6 +58,10 @@ micromamba install -y python=3.12 numpy scipy pandas matplotlib bokeh seaborn sc
 
 # fix the conda prompt when using fish
 micromamba config set changeps1 False
+
+# add the following to fish config for convenience
+alias mad="micromamba activate default"
+alias mm="micromamba"
 ```
 
 ## Bootstrap tmux
