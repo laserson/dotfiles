@@ -37,6 +37,3 @@ end
 function .....
   ../../../..
 end
-
-alias mad="micromamba activate default"
-alias mm="micromamba"
