@@ -1,13 +1,15 @@
 [user]
 	name = Uri Laserson
 	email = uri.laserson@gmail.com
+# Some add'l settings from this post:
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
+[branch]
+	autosetuprebase = always
 [core]
 	editor = vim
-	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
 	# [default] trailing-space: looks for spaces at the end of a line
 	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
@@ -23,45 +25,28 @@
 	untrackedCache = true
 	autocrlf = input
 	safecrlf = true
+	excludesfile = ~/.gitignore
 [color]
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = auto
-[color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
-[color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
 [diff]
-	# Detect copies as well as renames
-	renames = copies
-	tool = difftastic
-[diff "bin"]
-	# Use `hexdump` to diff binary files
-	textconv = hexdump -v -C
-[difftool]
-        prompt = false
-[difftool "difftastic"]
-        cmd = difft "$LOCAL" "$REMOTE"
-[pager]
-        difftool = true
+	renames = true
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
 [help]
 	# Automatically correct and execute mistyped commands
-	autocorrect = 1
+	autocorrect = prompt
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	conflictstyle = zdiff3
 [fetch]
 	# prune remote-tracking branches no longer on remote by default
 	prune = true
+	pruneTags = true
+	all = true
 [push]
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
@@ -92,3 +77,21 @@
 	contributors = shortlog --summary --numbered
 	churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
 	dft = difftool
+[column]
+	ui = auto
+[tag]
+	sort = version:refname
+[init]
+	defaultBranch = main
+[commit]
+	verbose = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[pull]
+	rebase = true
+
