@@ -101,6 +101,7 @@ Transfer stuff in ~/.config using AirDrop
 - Install homebrew
 - Install fish shell with homebrew and see instructions for bootstrapping a server for fish
 - Install some useful homebrew packages
+- Setup Atuin
 
 ```
 brew update
