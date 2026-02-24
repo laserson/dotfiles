@@ -37,3 +37,7 @@ end
 function .....
   ../../../..
 end
+
+function rgd
+    rg -e "def $argv" -e "class $argv"
+end
